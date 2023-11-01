@@ -1,0 +1,86 @@
+---
+import Card from './Card.astro';
+import Input from './Input.astro';
+const listCardBasic = ['500 GB Storage', '2 Users Allowed', 'Send up to 3 GB'];
+const listCardProfessional = [
+    '1 TB Storage',
+    ' 5 Users Allowed',
+    'Send up to 10 GB',
+];
+const listCardMaster = ['2 TB Storage', '10 Users Allowed', 'Send up to 20 GB'];
+---
+
+<main>
+    <div class="container">
+        <h1>Our Pricing</h1>
+        <Input />
+        <div class="card-container">
+            <Card
+                title="Basic"
+                price="19.99"
+                list={listCardBasic}
+                className="basic"
+            />
+            <Card
+                title="Professional"
+                price="24.99"
+                list={listCardProfessional}
+                className="secondary"
+            />
+            <Card
+                title="Master"
+                price="39.99"
+                list={listCardMaster}
+                className="master"
+            />
+        </div>
+    </div>
+</main>
+
+<style>
+    main {
+        padding-block: 5rem;
+        text-align: center;
+        background: url('../assets/bg-top.svg');
+        background-repeat: no-repeat;
+        background-position: top right -200px;
+        background-color: var(--very-light-grayis-blue);
+        min-height: 100vh;
+        display: grid;
+        align-items: center;
+    }
+
+    h1 {
+        color: var(--grayish-blue);
+    }
+
+    .card-container {
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .card-container > * {
+        flex-shrink: 0;
+        flex-grow: 2;
+    }
+
+    @media (min-width: 1160px) {
+        main {
+            background: url('../assets/bg-top.svg'),
+                url('../assets/bg-bottom.svg');
+            background-repeat: no-repeat, no-repeat;
+            background-position:
+                top right,
+                bottom left;
+            background-color: var(--very-light-grayis-blue);
+        }
+        .card-container {
+            gap: 0;
+        }
+    }
+</style>

@@ -1,0 +1,139 @@
+---
+const { title, price, list, className } = Astro.props;
+---
+
+<article class={className}>
+    <h2>{title}</h2>
+    <p>$<span class="price">{price}</span></p>
+    <div class="body">
+        <ul>
+            <hr />
+
+            <li>{list[0]}</li>
+            <hr />
+            <li>{list[1]}</li>
+            <hr />
+            <li>{list[2]}</li>
+            <hr />
+        </ul>
+        <button>Learn more</button>
+    </div>
+</article>
+
+<style>
+    article {
+        background-color: white;
+        padding: 1.9rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        width: 330px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    h2 {
+        color: var(--grayish-blue);
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 4rem;
+        line-height: 1.1;
+        color: var(--dark-grayish-blue);
+    }
+
+    hr {
+        border: none;
+        border-bottom: 1px solid var(--grayish-blue);
+        opacity: 0.2;
+    }
+
+    li {
+        margin-block: 0.8rem;
+        color: var(--grayish-blue);
+    }
+
+    button {
+        margin-top: 1.7rem;
+        padding-block: 0.7rem;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        font-family: var(--ff);
+        color: white;
+        border-radius: 5px;
+        background: linear-gradient(
+            to right,
+            hsl(236, 72%, 79%),
+            hsl(237, 63%, 64%)
+        );
+        border: 1px solid transparent;
+        border-left: hsl(236, 72%, 79%);
+        border-right: hsl(237, 63%, 64%);
+        cursor: pointer;
+        transition: background 300ms ease-in-out;
+    }
+
+    button:hover {
+        background: none;
+        background-color: transparent;
+        border: 1px solid var(--grayish-blue);
+        color: hsl(237, 63%, 64%);
+    }
+
+    /* middle card - secondary class  */
+    .secondary {
+        background: linear-gradient(
+            to bottom right,
+            hsl(236, 72%, 79%) 5%,
+            hsl(237, 63%, 64%)
+        );
+        color: white;
+    }
+
+    .secondary > h2,
+    .secondary > p,
+    .secondary > .body ul > li {
+        color: white;
+    }
+
+    .secondary > .body ul > hr {
+        border-bottom: 1px solid white;
+    }
+
+    .secondary > .body > button {
+        background: white;
+        color: hsl(237, 63%, 64%);
+        border: 1px solid transparent;
+    }
+
+    .secondary > .body > button:hover {
+        background: transparent;
+        color: white;
+        border: 1px solid white;
+    }
+
+    @media (min-width: 1160px) {
+        article {
+            height: 420px;
+        }
+
+        .basic {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .master {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+
+        .secondary {
+            height: 470px;
+            padding-top: 3.4rem;
+            width: 330px;
+        }
+    }
+</style>
